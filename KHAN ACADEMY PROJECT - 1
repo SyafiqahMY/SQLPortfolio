@@ -1,0 +1,24 @@
+CREATE TABLE myStore ( id INTEGER PRIMARY KEY ,name TEXT ,brand TEXT ,stock INTEGER ,price NUMERIC);
+
+INSERT INTO myStore VALUES (1 ,"Kicap" ,"Jalen" ,30 ,4.5);
+INSERT INTO myStore VALUES (2 ,"Sos Cili" ,"Life" ,15 ,6.0);
+INSERT INTO myStore VALUES (3 ,"Minyak masak" ,"Saji" ,23 ,13.8);
+INSERT INTO myStore VALUES (4 ,"Gula" ,"CSR" ,50 ,6.0);
+INSERT INTO myStore VALUES (5 ,"Garam" ,"Himalaya" ,27 ,2.3);
+INSERT INTO myStore VALUES (6 ,"Maggi" ,"Indomie" ,30 ,4.2);
+INSERT INTO myStore VALUES (8 ,"Ubat gigi" ,"Colgate" ,14 ,7.3);
+INSERT INTO myStore VALUES (9 ,"Berus Gigi" ,"Oral-B" ,11 ,5.5);
+INSERT INTO myStore VALUES (10 ,"Sabun" ,"Daia" ,16 ,27.9);
+INSERT INTO myStore VALUES (11 ,"Shampoo" ,"Safi" ,40 ,10);
+INSERT INTO myStore VALUES (12 ,"Sos Tomato" ,"ABC" ,30 ,4.5);
+INSERT INTO myStore VALUES (13 ,"Kicap" ,"Cap Udang" ,30 ,4.5);
+INSERT INTO myStore VALUES (14 ,"Sos BBQ" ,"Adabi" ,25 ,3.5);
+INSERT INTO myStore VALUES (15 ,"Sos Paket" ,"McD" ,320 ,1.5);
+
+SELECT*FROM myStore ORDER BY price asc;
+
+SELECT SUM(stock) FROM myStore WHERE name="Kicap";
+
+SELECT id,name,price FROM myStore WHERE price > 5 AND price < 10 ORDER BY price ASC;
+
+SELECT Stock, name FROM myStore GROUP BY name ="Kicap","Sos Cili" ;
