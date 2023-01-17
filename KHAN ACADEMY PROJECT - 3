@@ -7,3 +7,49 @@ Singers: What songs did they write? Where are they from?
 Authors: What books did they write?
 Fictional characters: How are they related to other characters? What books do they show up in? */
 
+/* Create table about the people and what they do here */
+
+CREATE TABLE persons (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    occupations TEXT);
+    
+INSERT INTO persons (name, occupations) VALUES ("Jungkook", "idol");
+INSERT INTO persons (name, occupations) VALUES ("Mas Elon", "jual Tesla");
+INSERT INTO persons (name, occupations) VALUES ("Abe Jia", "Pukul Bulu");
+INSERT INTO persons (name, occupations) VALUES ("The Batu", "Pelakon Hollywood");
+
+
+CREATE table achievements (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT);
+    
+INSERT INTO achievements (person_id, name) VALUES (1, "Kebenaran Menari");
+INSERT INTO achievements (person_id, name) VALUES (2, "Rosakkan Twitter");
+INSERT INTO achievements (person_id, name) VALUES (3, "Thai Open");
+INSERT INTO achievements (person_id, name) VALUES (1, "nak on ke tak");
+INSERT INTO achievements (person_id, name) VALUES (3, "Masih berusaha");
+INSERT INTO achievements (person_id, name) VALUES (4, "Dinasor");
+INSERT INTO achievements (person_id, name) VALUES (4, "Los Angelas");
+
+SELECT*FROM persons;
+SELECT*FROM achievements;
+
+SELECT persons.name, achievements.name 
+    FROM achievements
+    JOIN persons
+    ON persons.id = achievements.id;
+
+SELECT persons.name, achievements.name,COUNT(achievements.person_id) AS total_pencapaian
+    FROM achievements
+    LEFT OUTER JOIN persons
+    ON persons.id = achievements.person_id
+    GROUP BY persons.id
+    ORDER BY achievements.person_id DESC;
+
+
+
+
+
+
